@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Instance.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384082860297" ignored="false" />
     <file path="/fragment.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1383851600874" ignored="false" />
-    <file path="/Testa.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384083039011" ignored="false" />
+    <file path="/Testa.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384084003112" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +104,7 @@
       <file leaf-file-name="Testa.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/Testa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="84" selection-end="84" vertical-scroll-proportion="0.23480663">
+            <state line="47" column="59" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.7983425">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -544,7 +544,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Testa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="84" selection-end="84" vertical-scroll-proportion="0.23480663">
+        <state line="47" column="59" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.7983425">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
