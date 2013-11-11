@@ -11,6 +11,7 @@ public class Instance {
 
     //static final
     public static String error = "";
+    public static int position = 0;
     private Instance(){
 
     }
@@ -108,7 +109,9 @@ public class Instance {
             else{
                 System.out.println("U have some troubles in this position: " + a.charAt(i));
                 error = "U have some troubles in this position:"  + a.charAt(i);
+                position = i;
                 amountOfBracers = 0;
+                ifOperator = false;
                 ifBracesOpen = false;
                 test = false;
                 break;
@@ -377,6 +380,8 @@ public class Instance {
                 //forOutput.setText(String.valueOf(eval(forInput.getText())));
                 //comment.setText(Instance.error);
                 erro.setText(Instance.error);
+                forInput.requestFocus();
+                forInput.setCaretPosition(position);
 
             }
         });

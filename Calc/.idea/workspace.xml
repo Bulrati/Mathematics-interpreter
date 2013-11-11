@@ -4,7 +4,7 @@
     <list default="true" id="f42b768c-76da-4a19-834f-5cbb0d0f0601" name="Default" comment="" />
     <ignored path="Calc.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Instance.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384082860297" ignored="false" />
+    <file path="/Instance.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384193901937" ignored="false" />
     <file path="/fragment.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1383851600874" ignored="false" />
     <file path="/Testa.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384084003112" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,19 +72,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="Testa.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Testa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="30" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="46" column="13" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#1141#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Instance.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Instance.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Instance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="276" column="74" selection-start="9382" selection-end="9382" vertical-scroll-proportion="-0.4">
+            <state line="373" column="95" selection-start="13535" selection-end="13535" vertical-scroll-proportion="0.29376855">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Instance#0;class#Instance#0" expanded="false" />
@@ -92,21 +94,10 @@
                 <element signature="method#checkOperator#0;class#Instance#0" expanded="false" />
                 <element signature="method#checkBrace#0;class#Instance#0" expanded="false" />
                 <element signature="method#checkSpace#0;class#Instance#0" expanded="false" />
-                <element signature="e#6704#6712#0" expanded="true" />
-                <element signature="e#6790#6801#0" expanded="true" />
-                <element signature="e#13294#13887#0" expanded="true" />
-                <element signature="e#13876#13877#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Testa.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Testa.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="59" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.7983425">
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#6806#6814#0" expanded="true" />
+                <element signature="e#6892#6903#0" expanded="true" />
+                <element signature="e#13396#14083#0" expanded="true" />
+                <element signature="e#14072#14073#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,8 +114,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Instance.java" />
         <option value="$PROJECT_DIR$/src/test/java/Testa.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Instance.java" />
       </list>
     </option>
   </component>
@@ -524,9 +515,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Testa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="13" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#1141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/java/awt/event/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="16" selection-start="975" selection-end="975" vertical-scroll-proportion="0.57734805">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Instance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="74" selection-start="9382" selection-end="9382" vertical-scroll-proportion="-0.4">
+        <state line="373" column="95" selection-start="13535" selection-end="13535" vertical-scroll-proportion="0.29376855">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Instance#0;class#Instance#0" expanded="false" />
@@ -534,19 +541,10 @@
             <element signature="method#checkOperator#0;class#Instance#0" expanded="false" />
             <element signature="method#checkBrace#0;class#Instance#0" expanded="false" />
             <element signature="method#checkSpace#0;class#Instance#0" expanded="false" />
-            <element signature="e#6704#6712#0" expanded="true" />
-            <element signature="e#6790#6801#0" expanded="true" />
-            <element signature="e#13294#13887#0" expanded="true" />
-            <element signature="e#13876#13877#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Testa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="59" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.7983425">
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#6806#6814#0" expanded="true" />
+            <element signature="e#6892#6903#0" expanded="true" />
+            <element signature="e#13396#14083#0" expanded="true" />
+            <element signature="e#14072#14073#0" expanded="true" />
           </folding>
         </state>
       </provider>
