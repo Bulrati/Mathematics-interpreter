@@ -61,11 +61,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.016" classname="Testa" name="testPlus"/>
-  <testcase time="0" classname="Testa" name="testMinus"/>
+  <testcase time="0.018" classname="Testa" name="testPlus"/>
+  <testcase time="0.001" classname="Testa" name="testMinus"/>
   <testcase time="0" classname="Testa" name="testMultiply"/>
   <testcase time="0" classname="Testa" name="testDivide"/>
-  <testcase time="0.013" classname="Testa" name="testPower"/>
-  <testcase time="0" classname="Testa" name="testBracers"/>
-  <testcase time="0.001" classname="Testa" name="testNegative"/>
+  <testcase time="0.01" classname="Testa" name="testPower"/>
+  <testcase time="0.001" classname="Testa" name="testBracers"/>
+  <testcase time="0" classname="Testa" name="testNegative"/>
 </testsuite>

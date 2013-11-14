@@ -4,9 +4,16 @@
     <list default="true" id="f42b768c-76da-4a19-834f-5cbb0d0f0601" name="Default" comment="" />
     <ignored path="Calc.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Instance.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384193901937" ignored="false" />
+    <file path="/Instance.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384473158875" ignored="false" />
     <file path="/fragment.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1383851600874" ignored="false" />
     <file path="/Testa.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384084003112" ignored="false" />
+    <file path="$PROJECT_DIR$/../SimplexMethod/src/main/java/SimplexMethod.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384247074571" ignored="false" />
+    <file path="/SimplexMethod.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384247034789" ignored="false" />
+    <file path="$PROJECT_DIR$/../SimplexMethod/.idea/workspace.xml" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384270757840" ignored="false" />
+    <file path="$PROJECT_DIR$/../SimplexMethod/.idea/misc.xml" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384195033220" ignored="false" />
+    <file path="$PROJECT_DIR$/../SimplexMethod/.idea/compiler.xml" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384195033220" ignored="false" />
+    <file path="$PROJECT_DIR$/../SimplexMethod/src/main/java/Main.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384205490758" ignored="false" />
+    <file path="/Main.java" changelist="f42b768c-76da-4a19-834f-5cbb0d0f0601" time="1384205489654" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,10 +82,8 @@
       <file leaf-file-name="Testa.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Testa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="13" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#1141#0" expanded="true" />
-              </folding>
+            <state line="34" column="34" selection-start="858" selection-end="858" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,7 +91,7 @@
       <file leaf-file-name="Instance.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Instance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="373" column="95" selection-start="13535" selection-end="13535" vertical-scroll-proportion="0.29376855">
+            <state line="344" column="38" selection-start="12734" selection-end="12734" vertical-scroll-proportion="0.8337731">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Instance#0;class#Instance#0" expanded="false" />
@@ -94,10 +99,10 @@
                 <element signature="method#checkOperator#0;class#Instance#0" expanded="false" />
                 <element signature="method#checkBrace#0;class#Instance#0" expanded="false" />
                 <element signature="method#checkSpace#0;class#Instance#0" expanded="false" />
-                <element signature="e#6806#6814#0" expanded="true" />
-                <element signature="e#6892#6903#0" expanded="true" />
-                <element signature="e#13396#14083#0" expanded="true" />
-                <element signature="e#14072#14073#0" expanded="true" />
+                <element signature="e#6962#6970#0" expanded="true" />
+                <element signature="e#7048#7059#0" expanded="true" />
+                <element signature="e#13799#14516#0" expanded="true" />
+                <element signature="e#14505#14506#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -251,7 +256,7 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SimplexMethod" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
@@ -406,8 +411,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.67075306" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24961598" sideWeight="0.67950964" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32049036" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24961598" sideWeight="0.7530648" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2469352" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -515,15 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Testa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="13" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#1141#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/java/awt/event/ActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="16" selection-start="975" selection-end="975" vertical-scroll-proportion="0.57734805">
@@ -531,9 +527,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Testa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="34" selection-start="858" selection-end="858" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Instance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="373" column="95" selection-start="13535" selection-end="13535" vertical-scroll-proportion="0.29376855">
+        <state line="344" column="38" selection-start="12734" selection-end="12734" vertical-scroll-proportion="0.8337731">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Instance#0;class#Instance#0" expanded="false" />
@@ -541,10 +544,10 @@
             <element signature="method#checkOperator#0;class#Instance#0" expanded="false" />
             <element signature="method#checkBrace#0;class#Instance#0" expanded="false" />
             <element signature="method#checkSpace#0;class#Instance#0" expanded="false" />
-            <element signature="e#6806#6814#0" expanded="true" />
-            <element signature="e#6892#6903#0" expanded="true" />
-            <element signature="e#13396#14083#0" expanded="true" />
-            <element signature="e#14072#14073#0" expanded="true" />
+            <element signature="e#6962#6970#0" expanded="true" />
+            <element signature="e#7048#7059#0" expanded="true" />
+            <element signature="e#13799#14516#0" expanded="true" />
+            <element signature="e#14505#14506#0" expanded="true" />
           </folding>
         </state>
       </provider>

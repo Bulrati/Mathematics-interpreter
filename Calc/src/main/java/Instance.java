@@ -90,6 +90,7 @@ public class Instance {
                     test = false;
                     System.out.println("You have not any operator before: " + a.charAt(i) );
                    error ="You have not any operator before: " + a.charAt(i);
+                        position = i;
                     break;
                 }
                 }
@@ -142,6 +143,7 @@ public class Instance {
         if(ifFirstElementIsDigit == -1){
             System.out.println("You have not first digit");
             error ="You have not first digit";
+            position = 0;
         }
        return test;
     }
@@ -177,11 +179,9 @@ public class Instance {
                 break;
             case '-':
                 st.add(l - r);
+                System.out.println("l: " + l + " r: " + r + " l - r: " + (l-r));
                 break;
             case '^':
-                if(r < 0){
-                    return -1;
-                }
                 st.add(Math.pow(l,r));
                 break;
             case '*':
@@ -193,6 +193,7 @@ public class Instance {
                    return -1;
                 }  else{
                 st.add(l / r);
+                    System.out.println("l: " + l + " r: " + r + " l / r: " + (l / r));
                 }
                 break;
             case '%':
@@ -213,6 +214,7 @@ public class Instance {
         LinkedList<Double> st = new LinkedList<Double>(); // сюда наваливают цифры
         LinkedList<Character> op = new LinkedList<Character>(); // сюда опрераторы и st и op в порядке поступления
         for (int i = 0; i < s.length(); i++) { // парсим строку с выражением и вычисляем
+           //System.out.println("i: " + s.charAt(i) + " Chslotochec: " + chisloTochek);
             char c = s.charAt(i);
             if (isDelim(c))
                 continue;
@@ -224,8 +226,9 @@ public class Instance {
                 while (op.getLast() != '(')
                 {divideOnNull = processOperator(st,op.removeLast());
                 if(divideOnNull == -1){
-                    System.out.println("U can not divide on null or negative power");
-                    error = "U can not divide on null or negative power";
+                    System.out.println("U can not divide on null");
+                    error = "U can not divide on null";
+
                     return -1;
                 }
                 }
@@ -247,6 +250,7 @@ public class Instance {
                         cheredovanie = false;
                         continue;
                     }else{
+                        position = i;
                         System.out.println("U have two or more operators without digit");
                         error = "U have two or more operators without digit";
                         return -1;
@@ -272,14 +276,17 @@ public class Instance {
                 String operand = "";
                 while (i < s.length() && (Character.isDigit(s.charAt(i)) || s.charAt(i) == '.') )
                 {   //suda
+                    //System.out.println("i: " + s.charAt(i) + " Chslotochec v chisle: " + chisloTochek);
                     if (endBrace == true){
+                        position = i;
                         System.out.println("No operator after end bracer ");
                         error = "No operator after end bracer";
                         return -1;
                     }
                     //System.out.println("C = " + s.charAt(i));
-                    if( chisloTochek >= 1){
+                    if( chisloTochek >= 1 && s.charAt(i) == '.'){
                         //System.out.println("Not First point");
+                        position = i;
                         System.out.println("U can not set two points in one digit");
                         error = "U can not set two points in one digit";
                         return -1;
@@ -290,9 +297,10 @@ public class Instance {
                             //System.out.println("First point");
                             itWasPointBefore = true;
                             chisloTochek++;
-                            i++;//?????????????????????????
+                            //i++;//?????????????????????????
                         }
                         }else if(s.charAt(i) == '.' && cheredovanie == false){
+                        position = i;
                             System.out.println("U can not set point without digit ");
                         error = "U can not set point without digit ";
                             return -1;
@@ -312,13 +320,13 @@ public class Instance {
                     if(itWasPointBefore == true){
                         //System.out.println("itWasPointBefore");
 
-                        st.add((double)((Integer.parseInt(operand))*(-1)) / (10.0 * amountDigitsAfterPoint));
+                        st.add(((Double.parseDouble(operand))*(-1.0)));
                         itWasPointBefore = false;
                         amountDigitsAfterPoint = 0;
 
                     }   else{
 
-                    st.add((double)((Integer.parseInt(operand))*(-1)));
+                    st.add(((Double.parseDouble(operand))*(-1.0)));
                     sdelatOtrizatelnim = false;
                     }
                 }else{
@@ -326,12 +334,12 @@ public class Instance {
                         //System.out.println("itWasPointBefore for +");
                         //System.out.println("(double)Integer.parseInt(operand): " + (double)Integer.parseInt(operand));
                         //System.out.println("(10.0 * amountDigitsAfterPoint): " + (10.0 * amountDigitsAfterPoint));
-                        st.add((double)Integer.parseInt(operand) / (10.0 * amountDigitsAfterPoint));
+                        st.add(Double.parseDouble(operand));
                         itWasPointBefore = false;
                         amountDigitsAfterPoint = 0;
                     }else{
                         //System.out.println("No PointBefore");
-                st.add((double)Integer.parseInt(operand));
+                st.add(Double.parseDouble(operand));
 
                 counter = 0;
                     }
@@ -382,6 +390,7 @@ public class Instance {
                 erro.setText(Instance.error);
                 forInput.requestFocus();
                 forInput.setCaretPosition(position);
+                position = 0;
 
             }
         });
