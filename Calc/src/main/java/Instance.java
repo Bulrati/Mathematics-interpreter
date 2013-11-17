@@ -87,11 +87,12 @@ public class Instance {
 
                 if(ifOperator == false){
                     if( i>0 && checkBrace(a.charAt(i-1))!=1){
-                    test = false;
+                    //test = false;
                     System.out.println("You have not any operator before: " + a.charAt(i) );
                    error ="You have not any operator before: " + a.charAt(i);
                         position = i;
-                    break;
+                        return false;
+                    //break;
                 }
                 }
                 amountOfBracers++;
@@ -115,7 +116,8 @@ public class Instance {
                 ifOperator = false;
                 ifBracesOpen = false;
                 test = false;
-                break;
+                return false;
+               // break;
             }
 
         }
@@ -179,7 +181,7 @@ public class Instance {
                 break;
             case '-':
                 st.add(l - r);
-                System.out.println("l: " + l + " r: " + r + " l - r: " + (l-r));
+                //System.out.println("l: " + l + " r: " + r + " l - r: " + (l-r));
                 break;
             case '^':
                 st.add(Math.pow(l,r));
@@ -193,7 +195,7 @@ public class Instance {
                    return -1;
                 }  else{
                 st.add(l / r);
-                    System.out.println("l: " + l + " r: " + r + " l / r: " + (l / r));
+                    //System.out.println("l: " + l + " r: " + r + " l / r: " + (l / r));
                 }
                 break;
             case '%':
@@ -219,8 +221,16 @@ public class Instance {
             if (isDelim(c))
                 continue;
             if (c == '(')
-            {op.add('(');
+            {
+
+                if(sdelatOtrizatelnim == true){
+                    counter = 0;
+                    sdelatOtrizatelnim = false;
+                    op.add('N');
+                }
+                op.add('(');
                 endBrace = false;
+
             }
             else if (c == ')') {
                 while (op.getLast() != '(')
@@ -233,8 +243,15 @@ public class Instance {
                 }
                 }
                 op.removeLast();
+                if(op.isEmpty() == false){
+                if(op.getLast() == 'N')
+                {   op.removeLast();
+                    double result = st.removeLast() * -(1.0);
+                    st.add(result);  }
+                }
                 endBrace = true;
             } else if (isOperator(c)) {
+                //System.out.println("counter" + counter);
                 counter++;
 
                 if(cheredovanie == true){
@@ -248,6 +265,7 @@ public class Instance {
                         counter = 3;
                          sdelatOtrizatelnim = true;
                         cheredovanie = false;
+
                         continue;
                     }else{
                         position = i;
@@ -329,6 +347,7 @@ public class Instance {
                     st.add(((Double.parseDouble(operand))*(-1.0)));
                     sdelatOtrizatelnim = false;
                     }
+                    counter = 0;
                 }else{
                     if (itWasPointBefore == true){
                         //System.out.println("itWasPointBefore for +");
@@ -340,7 +359,7 @@ public class Instance {
                     }else{
                         //System.out.println("No PointBefore");
                 st.add(Double.parseDouble(operand));
-
+                //System.out.println("cicle: " + counter);
                 counter = 0;
                     }
                 }
@@ -364,8 +383,8 @@ public class Instance {
 
         final JFrame jf = new JFrame ("Some type of calculator");
         JButton a=new JButton("Execute");
-        final JTextField forInput = new JTextField(10);
-        final JTextField forOutput = new JTextField(10);
+        final JTextField forInput = new JTextField(12);
+        final JTextField forOutput = new JTextField(12);
         final JLabel erro = new JLabel();
         jf.setBounds(10, 10, 200, 150);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -379,10 +398,16 @@ public class Instance {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Instance.error = "";
+                forOutput.setText("");
 
                 //To change body of implemented methods use File | Settings | File Templates.
                 if(checkString(forInput.getText())==true){
+                    System.out.println("stringcheck true");
                     forOutput.setText(String.valueOf(eval(forInput.getText())));
+                } else{
+                    System.out.println("stringcheck false");
+                    erro.setText(Instance.error);
+                    forOutput.setText("-1");
                 }
 
                 //forOutput.setText(String.valueOf(eval(forInput.getText())));
@@ -400,7 +425,7 @@ public class Instance {
         while(example.compareTo("exit")!=0){
         System.out.println(example);
         if(checkString(example)==true){
-            System.out.println("Result is: " + eval(example));
+            //System.out.println("Result is: " + eval(example));
         }
         example = input.nextLine();
     }
