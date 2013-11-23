@@ -9,9 +9,9 @@ import java.lang.String;
 public class Instance {
 
 
-    //static final
     public static String error = "";
     public static int position = 0;
+    public static int counter = 0;
     private Instance(){
 
     }
@@ -58,22 +58,31 @@ public class Instance {
         int ifFirstElementIsDigit = 0;
         for(int i=0;i<size;i++){
 
-            //System.out.println("a.charAt(i):" + a.charAt(i));
+
             if(checkNumber(a.charAt(i)) == true ){
-                //System.out.println("digit: " + a.charAt(i));
+
                 if(ifFirstElementIsDigit == 0){
-                    ifFirstElementIsDigit = 1; // first element is digit
+                    ifFirstElementIsDigit = 1;
                 }
-                //System.out.println("DIGIT");
+
                 test = true;
                 ifOperator = false;
+            }
+            else if(i+3<a.length() && a.charAt(i+1) == 'i' && a.charAt(i+2) == 'n' && a.charAt(i) == 's' && a.charAt(i+3) == '(' ){
+               i=i+2;                             //sinus
+                ifOperator = true;
+                ifFirstElementIsDigit = 1;
+            }
+            else if(i+3<a.length() && a.charAt(i+1) == 'o' && a.charAt(i+2) == 's' && a.charAt(i) == 'c' && a.charAt(i+3) == '(' ){
+                i=i+2;                  //cosines
+                ifOperator = true;
+                ifFirstElementIsDigit = 1;
             }
             else if( checkSpace(a.charAt(i)) == true){
                 test = true;
             }
             else if( checkOperator(a.charAt(i)) == true ){
-               // System.out.println("operator: " + a.charAt(i));
-               // System.out.println("Operator");
+
                 if(ifFirstElementIsDigit == 0 && a.charAt(i)!='-'){
                     ifFirstElementIsDigit = -1; // first element is not digit
                     test = false;
@@ -83,20 +92,20 @@ public class Instance {
                 ifOperator = true;
             }
             else if( checkBrace(a.charAt(i)) == 1){
-                //System.out.println("Brace " + ifOperator);
+
 
                 if(ifOperator == false){
                     if( i>0 && checkBrace(a.charAt(i-1))!=1){
-                    //test = false;
-                    System.out.println("You have not any operator before: " + a.charAt(i) );
+
+                    //System.out.println("You have not any operator before: " + a.charAt(i) );
                    error ="You have not any operator before: " + a.charAt(i);
                         position = i;
                         return false;
-                    //break;
+
                 }
                 }
                 amountOfBracers++;
-                //System.out.println("Proshlo");
+
                 ifBracesOpen = true;
                 test = true;
             }
@@ -109,7 +118,7 @@ public class Instance {
 
             }
             else{
-                System.out.println("U have some troubles in this position: " + a.charAt(i));
+                //System.out.println("U have some troubles in this position: " + a.charAt(i));
                 error = "U have some troubles in this position:"  + a.charAt(i);
                 position = i;
                 amountOfBracers = 0;
@@ -117,33 +126,33 @@ public class Instance {
                 ifBracesOpen = false;
                 test = false;
                 return false;
-               // break;
+
             }
 
         }
         if(amountOfBracers > 0){
             test = false;
-            System.out.println("U have too much opening bracers");
+            //System.out.println("U have too much opening bracers");
             error ="U have too much opening bracers";
 
         }
         if(amountOfBracers < 0){
             test = false;
-            System.out.println("U missed opening bracer");
+            //System.out.println("U missed opening bracer");
             error ="U missed opening bracer";
 
         }
         if(ifOperator == true){
             test = false;
-            System.out.println("Your expression can`t ending by operator");
+            //System.out.println("Your expression can`t ending by operator");
             error ="Your expression can`t ending by operator";
         }
         if(ifBracesOpen == true){
-            System.out.println("You have brace that must be closed");
+            //System.out.println("You have brace that must be closed");
             error ="You have brace that must be closed";
         }
         if(ifFirstElementIsDigit == -1){
-            System.out.println("You have not first digit");
+            //System.out.println("You have not first digit");
             error ="You have not first digit";
             position = 0;
         }
@@ -151,14 +160,14 @@ public class Instance {
     }
 
 
-    static boolean isDelim(char c) { // тру если пробел
+    static boolean isDelim(char c) { // true if space
         return c == ' ';
     }
-    static boolean isOperator(char c) { // возвращяем тру если один из символов ниже
+    static boolean isOperator(char c) { // if one of these symbols then true
         return c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '^';
     }
     static int priority(char op) {
-        switch (op) { // при + или - возврат 1, при * / % 2 иначе -1
+        switch (op) { // if + or - then return 1, if * / % return 2, if ^ return 3. Else -1
             case '+':
             case '-':
                 return 1;
@@ -173,15 +182,15 @@ public class Instance {
         }
     }
     static int processOperator(LinkedList<Double> st, char op) {
-        double r = st.removeLast(); // выдёргиваем из упорядоченного листа последний элемент
-        double l = st.removeLast(); // также
-        switch (op) { // выполняем действие между l и r в зависимости от оператора в кейсе и результат валим в st
+        double r = st.removeLast(); // take last element from list
+        double l = st.removeLast(); // same
+        switch (op) { // execute operation dependence in operator, then write result to the "st" list
             case '+':
                 st.add(l + r);
                 break;
             case '-':
                 st.add(l - r);
-                //System.out.println("l: " + l + " r: " + r + " l - r: " + (l-r));
+
                 break;
             case '^':
                 st.add(Math.pow(l,r));
@@ -195,7 +204,7 @@ public class Instance {
                    return -1;
                 }  else{
                 st.add(l / r);
-                    //System.out.println("l: " + l + " r: " + r + " l / r: " + (l / r));
+
                 }
                 break;
             case '%':
@@ -205,27 +214,27 @@ public class Instance {
         return 0;
     }
     public static double eval(String s) {
-        boolean cheredovanie = false; //chislo - operator - chislo - operator
-        boolean sdelatOtrizatelnim = false; //operator - operator - chislo
+        boolean cheredovanie = false; //digit - operator - digit - operator
+        boolean makeNegative = false; //operator - operator - digit
         boolean itWasPointBefore = false; // set in true when we find point in digit
         int divideOnNull = 0;
-        int chisloTochek = 0;
+        int amountOfPoints = 0;
         boolean endBrace =false;
         int amountDigitsAfterPoint = 0;
-        int counter = 0;//kolvo posledovatelnix operacii
-        LinkedList<Double> st = new LinkedList<Double>(); // сюда наваливают цифры
-        LinkedList<Character> op = new LinkedList<Character>(); // сюда опрераторы и st и op в порядке поступления
-        for (int i = 0; i < s.length(); i++) { // парсим строку с выражением и вычисляем
-           //System.out.println("i: " + s.charAt(i) + " Chslotochec: " + chisloTochek);
+        int counter = 0;//amount posledovatelnix operations
+        LinkedList<Double> st = new LinkedList<Double>(); // list for digits
+        LinkedList<Character> op = new LinkedList<Character>(); // list of operators
+        for (int i = 0; i < s.length(); i++) { // parse and calculate string
+
             char c = s.charAt(i);
             if (isDelim(c))
                 continue;
             if (c == '(')
             {
 
-                if(sdelatOtrizatelnim == true){
+                if(makeNegative == true){
                     counter = 0;
-                    sdelatOtrizatelnim = false;
+                    makeNegative = false;
                     op.add('N');
                 }
                 op.add('(');
@@ -236,7 +245,7 @@ public class Instance {
                 while (op.getLast() != '(')
                 {divideOnNull = processOperator(st,op.removeLast());
                 if(divideOnNull == -1){
-                    System.out.println("U can not divide on null");
+                    //System.out.println("U can not divide on null");
                     error = "U can not divide on null";
 
                     return -1;
@@ -251,7 +260,7 @@ public class Instance {
                 }
                 endBrace = true;
             } else if (isOperator(c)) {
-                //System.out.println("counter" + counter);
+
                 counter++;
 
                 if(cheredovanie == true){
@@ -259,17 +268,17 @@ public class Instance {
                     endBrace = false;
                     itWasPointBefore = false;
                     amountDigitsAfterPoint = 0;
-                    chisloTochek = 0;
+                    amountOfPoints = 0;
                 }else{
                     if (c == '-' && (counter == 2 || counter == 1)){
                         counter = 3;
-                         sdelatOtrizatelnim = true;
+                         makeNegative = true;
                         cheredovanie = false;
 
                         continue;
                     }else{
                         position = i;
-                        System.out.println("U have two or more operators without digit");
+                        //System.out.println("U have two or more operators without digit");
                         error = "U have two or more operators without digit";
                         return -1;
                     }
@@ -280,63 +289,98 @@ public class Instance {
                 {divideOnNull = processOperator(st, op.removeLast());
                     if(divideOnNull == -1){
                         error = "U can not divide on null";
-                        System.out.println("U can not divide on null");
+                        //System.out.println("U can not divide on null");
 
                         return -1;
                     }
                 }
                 op.add(c);
-            } else {
+
+            }else if (checkFunction(s,i) == 0){
+                i = i+3;
+                double result = sinus(s,i);
+                if (result == -1 && error.equals("") == false){
+                    return -1;
+                }
+                if (makeNegative == true)
+                {st.add(result*-1);
+                    cheredovanie = true;
+                    i = Instance.counter;}
+                else{
+                    st.add(result);
+                    cheredovanie = true;
+                    i = Instance.counter;
+
+                }
+
+            }
+            else if (checkFunction(s,i) == 1){
+                i = i+3;
+                double result = cosines(s, i);
+                if (result == -1 && error.equals("") == false){
+                    return -1;
+                }
+                if (makeNegative == true)
+                {st.add(result*-1);
+                    cheredovanie = true;
+                    i = Instance.counter;}
+                else{
+                    st.add(result);
+                    cheredovanie = true;
+                    i = Instance.counter;
+
+                }
+
+            }else {
 
 
 
 
                 String operand = "";
                 while (i < s.length() && (Character.isDigit(s.charAt(i)) || s.charAt(i) == '.') )
-                {   //suda
-                    //System.out.println("i: " + s.charAt(i) + " Chslotochec v chisle: " + chisloTochek);
+                {
                     if (endBrace == true){
                         position = i;
-                        System.out.println("No operator after end bracer ");
+                       // System.out.println("No operator after end bracer ");
                         error = "No operator after end bracer";
                         return -1;
                     }
-                    //System.out.println("C = " + s.charAt(i));
-                    if( chisloTochek >= 1 && s.charAt(i) == '.'){
-                        //System.out.println("Not First point");
+
+                    if( amountOfPoints >= 1 && s.charAt(i) == '.'){
+
                         position = i;
-                        System.out.println("U can not set two points in one digit");
+                       // System.out.println("U can not set two points in one digit");
                         error = "U can not set two points in one digit";
                         return -1;
                     }
                     if (s.charAt(i) == '.' && cheredovanie == true){
-                        //System.out.println("U have point");
-                        if( chisloTochek == 0){
-                            //System.out.println("First point");
+
+                        if( amountOfPoints == 0){
+
                             itWasPointBefore = true;
-                            chisloTochek++;
-                            //i++;//?????????????????????????
+                            amountOfPoints++;
+
                         }
                         }else if(s.charAt(i) == '.' && cheredovanie == false){
                         position = i;
-                            System.out.println("U can not set point without digit ");
+                           // System.out.println("U can not set point without digit ");
                         error = "U can not set point without digit ";
                             return -1;
                         }
 
                         operand += s.charAt(i++);
                     cheredovanie = true;
-                    //System.out.println("operand: " + operand);
-                  if (itWasPointBefore == true){
+
+                 /* if (itWasPointBefore == true){
                    amountDigitsAfterPoint++;
-                      //System.out.println("amountDigitsAfterPoint" + amountDigitsAfterPoint);
-                  }
+
+                  }   */
                 }
-                //System.out.println("Cycle off");
+
                 --i;
-                if(sdelatOtrizatelnim == true){
+                if(makeNegative == true){
                     if(itWasPointBefore == true){
-                        //System.out.println("itWasPointBefore");
+
 
                         st.add(((Double.parseDouble(operand))*(-1.0)));
                         itWasPointBefore = false;
@@ -345,21 +389,19 @@ public class Instance {
                     }   else{
 
                     st.add(((Double.parseDouble(operand))*(-1.0)));
-                    sdelatOtrizatelnim = false;
+                    makeNegative = false;
                     }
                     counter = 0;
                 }else{
                     if (itWasPointBefore == true){
-                        //System.out.println("itWasPointBefore for +");
-                        //System.out.println("(double)Integer.parseInt(operand): " + (double)Integer.parseInt(operand));
-                        //System.out.println("(10.0 * amountDigitsAfterPoint): " + (10.0 * amountDigitsAfterPoint));
+
                         st.add(Double.parseDouble(operand));
                         itWasPointBefore = false;
                         amountDigitsAfterPoint = 0;
                     }else{
-                        //System.out.println("No PointBefore");
+
                 st.add(Double.parseDouble(operand));
-                //System.out.println("cicle: " + counter);
+
                 counter = 0;
                     }
                 }
@@ -368,48 +410,247 @@ public class Instance {
         while (!op.isEmpty())
         {divideOnNull = processOperator(st, op.removeLast());
             if(divideOnNull == -1){
-                System.out.println("U can not divide on null");
+                //System.out.println("U can not divide on null");
                 error = "U can not divide on null ";
                 return -1;
             }
         }
-        return st.get(0);  // возврат результата
+
+        if(!cheredovanie){
+               error = "U have missed digit in your expression";
+            return -1; }
+        return st.get(0);  // return result
     }
 
+    private static double cosines(String s, int i) {
+        boolean point = false;
+        boolean negative = false;
+        int digit = 0;
+        double answer = 0.0;
+
+
+        while(s.charAt(i) != ')'){
+
+
+            if(checkSpace(s.charAt(i)) && (digit == 0 || digit == 1)){
+                i++;
+
+                continue;
+
+            }
+
+
+            if(checkOperator(s.charAt(i))) {
+                if(s.charAt(i) == '-' && digit == 0 && negative == false){
+                    negative = true;
+
+                }else{
+                    error = "Only digit in this function";
+                    position = i;
+                    return -1;
+                }
+            }
+
+
+            if(Character.isDigit(s.charAt(i)) == true || s.charAt(i) == '.'){
+
+                digit++;
+                if (digit > 1){
+                    error = "Only one digit in this function";
+                    position = i;
+                    return -1;
+                }
+                String result = "";
+                while((Character.isDigit(s.charAt(i)) || s.charAt(i) == '.' ) && (i <= s.length()) ) {
+                    if(s.charAt(i) == '.' && point == false ){
+                        if(Character.isDigit(s.charAt(i-1))) {
+                            point = true;
+                            result+= s.charAt(i++);
+                            continue;}
+                        else{
+                            error = "U mast write digit before point";
+                            position = i;
+                            return -1;
+                        }
+                    }  if(s.charAt(i) == '.' && point == true){
+                        error = "two points";
+                        position = i;
+                        return -1;
+                    }
+                    result+= s.charAt(i++);
+                }
+                i--;
+
+                if(negative == true)
+                {answer = Double.parseDouble(result) * -1.0;
+                    answer = Math.cos(answer);}
+                else{
+                    answer = Double.parseDouble(result);
+                    answer = Math.cos(answer);
+                }
+            }
+            i++;
+            if(i > s.length())
+            {
+                error = "no end bracer";
+                return -1;
+            }
+
+        }
+        if(s.charAt(i) == ')'){
+
+            counter = i;
+
+            return answer;
+        }
+        else {return -1; }
+    }
+
+    private static int checkFunction(String s, int i) {
+        int result = -1;
+
+        if((i + 3 <= s.length()) && (s.charAt(i) == 's') && (s.charAt(i+1) == 'i')
+                && (s.charAt(i+2) == 'n' && (s.charAt(i+3) == '('))) {
+        result = 0;
+    }
+
+        if((i + 3 <= s.length()) && (s.charAt(i) == 'c') && (s.charAt(i+1) == 'o')
+                && (s.charAt(i+2) == 's' && (s.charAt(i+3) == '('))) {
+            result = 1;
+        }
+
+        return result;
+    }
+
+    private static double sinus(String s, int i) {
+        boolean point = false;
+        boolean negative = false;
+        int digit = 0;
+        double answer = 0.0;
+
+
+        while(s.charAt(i) != ')'){
+
+
+            if(checkSpace(s.charAt(i)) && (digit == 0 || digit == 1)){
+                i++;
+
+                continue;
+
+            }
+
+
+            if(checkOperator(s.charAt(i))) {
+                if(s.charAt(i) == '-' && digit == 0 && negative == false){
+                    negative = true;
+
+                }else{
+                error = "Only digit in this function";
+                position = i;
+                return -1;
+                }
+            }
+
+
+            if(Character.isDigit(s.charAt(i)) == true || s.charAt(i) == '.'){
+
+                digit++;
+                if (digit > 1){
+                    error = "Only one digit in this function";
+                    position = i;
+                    return -1;
+                }
+                String result = "";
+                while((Character.isDigit(s.charAt(i)) || s.charAt(i) == '.' ) && (i <= s.length()) ) {
+
+                    if(s.charAt(i) == '.' && point == false ){
+
+                        if(Character.isDigit(s.charAt(i-1))) {
+
+                        point = true;
+                        result+= s.charAt(i++);
+                        continue;}
+                        else{
+
+                            error = "U mast write digit before point";
+                            position = i;
+                            return -1;
+                        }
+                    }  if(s.charAt(i) == '.' && point == true){
+                        error = "two points";
+                        position = i;
+                       return -1;
+                    }
+
+                    result+= s.charAt(i++);
+
+                }
+                   i--;
+
+                if(negative == true)
+                {answer = Double.parseDouble(result) * -1.0;
+                    answer = Math.sin(answer);}
+                else{
+                answer = Double.parseDouble(result);
+                answer = Math.sin(answer);
+                }
+            }
+            i++;
+            if(i > s.length())
+            {
+                error = "no end bracer";
+                return -1;
+            }
+
+        }
+        if(s.charAt(i) == ')'){
+
+            counter = i;
+
+            return answer;
+        }
+        else {return -1; }
+    }
 
     public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     boolean test = false;
-
+        final boolean[] show = {false};
         final JFrame jf = new JFrame ("Some type of calculator");
-        JButton a=new JButton("Execute");
+        JButton execute = new JButton("Execute");
+        JButton showConsole = new JButton("show console");
         final JTextField forInput = new JTextField(12);
         final JTextField forOutput = new JTextField(12);
         final JLabel erro = new JLabel();
-        jf.setBounds(10, 10, 200, 150);
+        jf.setBounds(10, 10, 500, 350);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setLayout(new FlowLayout());
         jf.add(forInput);
-        jf.add(a);
+        jf.add(execute);
         jf.add(forOutput);
         jf.add(erro);
+        jf.add(showConsole);
         jf.setVisible(true);
-        a.addActionListener(new ActionListener() {
+        execute.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Instance.error = "";
                 forOutput.setText("");
 
-                //To change body of implemented methods use File | Settings | File Templates.
-                if(checkString(forInput.getText())==true){
-                    System.out.println("stringcheck true");
-                    forOutput.setText(String.valueOf(eval(forInput.getText())));
-                } else{
-                    System.out.println("stringcheck false");
-                    erro.setText(Instance.error);
+                if (forInput.getText().equals("")) {
+                    error = "U have no expression";
                     forOutput.setText("-1");
-                }
+                } else {
+                    //To change body of implemented methods use File | Settings | File Templates.
+                    if (checkString(forInput.getText()) == true) {
 
+                        forOutput.setText(String.valueOf(eval(forInput.getText())));
+                    } else {
+
+                        //erro.setText(Instance.error);
+                        forOutput.setText("-1");
+                    }
+                }
                 //forOutput.setText(String.valueOf(eval(forInput.getText())));
                 //comment.setText(Instance.error);
                 erro.setText(Instance.error);
@@ -417,9 +658,22 @@ public class Instance {
                 forInput.setCaretPosition(position);
                 position = 0;
 
+                if(show[0]){
+                    System.out.println(forOutput.getText());
+                    System.out.println(Instance.error);
+                }
+
             }
         });
+        showConsole.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                  show[0] = !show[0];
+
+            }
+        }
+        );
 
         String example = input.nextLine();
         while(example.compareTo("exit")!=0){

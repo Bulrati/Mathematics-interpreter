@@ -107,4 +107,29 @@ public class Testa {
         String example = "3.2+4..2";
         assertEquals(Instance.eval(example), -1.0, 0.001);
     }
+
+    @Test
+    public void DivideOnNull() {
+        String example = "3/0";
+        assertEquals(Instance.eval(example), -1.0, 0.001);
+    }
+
+    @Test
+    public void NoOperatorAfterBrace() {
+        String example = "2+(3*4)3";
+        assertEquals(Instance.eval(example), -1.0, 0.001);
+    }
+
+    @Test
+    public void FunctionSinus() {
+        String example = "sin(90)";
+        assertEquals(Instance.eval(example), Math.sin(90), 0.001);
+    }
+
+    @Test
+    public void FunctionCosines() {
+        String example = "cos(90)";
+        assertEquals(Instance.eval(example), Math.cos(90), 0.001);
+    }
+
 }
