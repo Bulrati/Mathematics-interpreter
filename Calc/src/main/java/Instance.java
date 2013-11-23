@@ -622,9 +622,13 @@ public class Instance {
         final JTextField forInput = new JTextField(12);
         final JTextField forOutput = new JTextField(12);
         final JLabel erro = new JLabel();
-        jf.setBounds(10, 10, 500, 350);
+        final JLabel rules = new JLabel();
+        rules.setText("Hy! This is Mathematics-interpreter. Write your expression and I will calculate it. U can use operators" +
+                " like: +,-,/,*,^. Functions like: sin(...), cos(...). And bracers.");
+        jf.setBounds(10, 10, 900, 350);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setLayout(new FlowLayout());
+        jf.add(rules);
         jf.add(forInput);
         jf.add(execute);
         jf.add(forOutput);
